@@ -1,0 +1,161 @@
+NoSqlMongoDb> db.NoSqlMongoDb.insertMany([
+...    { firstName: "John", lastName: "Doe", age: 25, email: "john.doe@email.com", married: false },
+...    { firstName: "Jane", lastName: "Doe", age: 30, email: "jane.doe@email.com", married: true },
+...    { firstName: "Bob", lastName: "Smith", age: 40, email: "bob.smith@email.com", married: true },
+...    { firstName: "Alice", lastName: "Johnson", age: 22, email: "alice.johnson@email.com", married: false },
+...    { firstName: "Tom", lastName: "Brown", age: 50, email: "tom.brown@email.com", married: true }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("644a3f79f39e4ec0f59cef1c"),
+    '1': ObjectId("644a3f79f39e4ec0f59cef1d"),
+    '2': ObjectId("644a3f79f39e4ec0f59cef1e"),
+    '3': ObjectId("644a3f79f39e4ec0f59cef1f"),
+    '4': ObjectId("644a3f79f39e4ec0f59cef20")
+  }
+}
+NoSqlMongoDb> db.NoSqlMongoDb.find()
+[
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1c"),
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    email: 'john.doe@email.com',
+    married: false
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1d"),
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 30,
+    email: 'jane.doe@email.com',
+    married: true
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1e"),
+    firstName: 'Bob',
+    lastName: 'Smith',
+    age: 40,
+    email: 'bob.smith@email.com',
+    married: true
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1f"),
+    firstName: 'Alice',
+    lastName: 'Johnson',
+    age: 22,
+    email: 'alice.johnson@email.com',
+    married: false
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef20"),
+    firstName: 'Tom',
+    lastName: 'Brown',
+    age: 50,
+    email: 'tom.brown@email.com',
+    married: true
+  }
+]
+NoSqlMongoDb> db.NoSqlMongoDb.find({firstName:"John"})
+[
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1c"),
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    email: 'john.doe@email.com',
+    married: false
+  }
+]
+NoSqlMongoDb> db.NoSqlMongoDb.find({lastName:"Doe"})
+[
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1c"),
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    email: 'john.doe@email.com',
+    married: false
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1d"),
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 30,
+    email: 'jane.doe@email.com',
+    married: true
+  }
+]
+NoSqlMongoDb> db.NoSqlMongoDb.find({age:{$gt:18}})
+[
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1c"),
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    email: 'john.doe@email.com',
+    married: false
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1d"),
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 30,
+    email: 'jane.doe@email.com',
+    married: true
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1e"),
+    firstName: 'Bob',
+    lastName: 'Smith',
+    age: 40,
+    email: 'bob.smith@email.com',
+    married: true
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1f"),
+    firstName: 'Alice',
+    lastName: 'Johnson',
+    age: 22,
+    email: 'alice.johnson@email.com',
+    married: false
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef20"),
+    firstName: 'Tom',
+    lastName: 'Brown',
+    age: 50,
+    email: 'tom.brown@email.com',
+    married: true
+  }
+]
+NoSqlMongoDb> db.NoSqlMongoDb.find({married:true})
+[
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1d"),
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 30,
+    email: 'jane.doe@email.com',
+    married: true
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef1e"),
+    firstName: 'Bob',
+    lastName: 'Smith',
+    age: 40,
+    email: 'bob.smith@email.com',
+    married: true
+  },
+  {
+    _id: ObjectId("644a3f79f39e4ec0f59cef20"),
+    firstName: 'Tom',
+    lastName: 'Brown',
+    age: 50,
+    email: 'tom.brown@email.com',
+    married: true
+  }
+]
+NoSqlMongoDb>
