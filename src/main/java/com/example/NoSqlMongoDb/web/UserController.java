@@ -50,7 +50,7 @@ public class UserController {
 
     @PostMapping("/users/create")
     public ResponseEntity<?> create(@RequestBody User user) {
-        return new ResponseEntity<>(userService.create(user), HttpStatus.FOUND);
+        return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/user/{id}")
